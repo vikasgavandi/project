@@ -3,7 +3,7 @@ name: Test Node Workflow
 on: 
   push:
     branches:
-      - main  # Trigger the workflow only on pushes to the main branch (modify as needed)
+      - main
 
 jobs: 
   build: 
@@ -25,4 +25,3 @@ jobs:
 
     - name: Install Dependencies
       run: npm install
-      working-directory: ./path-to-your-project # Update this path based on your project structure
