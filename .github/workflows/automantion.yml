@@ -1,12 +1,28 @@
-name: Test Node with workflow 
-on: push 
+name: Test Node Workflow
+
+on: 
+  push:
+    branches:
+      - main  # Trigger the workflow only on pushes to the main branch (modify as needed)
+
 jobs: 
-  first-job: 
-    name: Build with Node 
+  build: 
+    name: Build with Node
     runs-on: ubuntu-latest
-    container: node:20.12.2
+
+    container: 
+      image: node:20.12.2
+
     steps: 
-    - run: node --version
-    - run: npm --version
-    - uses: actions/checkout@v2
-    - run: npm install 
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Display Node.js Version
+      run: node --version
+
+    - name: Display npm Version
+      run: npm --version
+
+    - name: Install Dependencies
+      run: npm install
+      working-directory: ./path-to-your-project # Update this path based on your project structure
